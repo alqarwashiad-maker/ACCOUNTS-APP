@@ -1,0 +1,15 @@
+{
+  "name": "Payflow Oman Payroll",
+  "short_name": "Payflow",
+  "description": "Salary payments and payroll management for Oman.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fbfbf8",
+  "theme_color": "#0c3c3a",
+  "categories": ["business", "finance"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

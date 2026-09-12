@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c3c3a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <title>Payflow Oman | Salary payments</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main id="loginView" class="login-shell">
+    <section class="login-art" aria-label="Payroll workspace introduction">
+      <div class="brand-mark">PF</div>
+      <p class="eyebrow">OMAN PAYROLL WORKSPACE</p>
+      <h1>Pay people<br><em>with clarity.</em></h1>
+      <p class="art-copy">A calm place to prepare, review, and release salary payments across every site.</p>
+      <div class="art-note"><span>JUL</span><strong>2026</strong><small>PAYROLL PERIOD</small></div>
+    </section>
+    <section class="login-panel">
+      <div class="login-inner">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2>Sign in to Payflow</h2>
+        <p class="muted">Use the demo account to explore the salary calculator.</p>
+        <form id="loginForm">
+          <label>Email address<input id="email" type="email" value="payroll@company.om" required></label>
+          <label>Password<input id="password" type="password" value="payflow" required></label>
+          <div class="form-row"><label class="check"><input type="checkbox" checked> Remember me</label><a href="#" id="forgotLink">Forgot password?</a></div>
+          <button class="primary wide" type="submit">Enter workspace <span>→</span></button>
+        </form>
+        <p id="loginMessage" class="login-message" role="status"></p>
+      </div>
+      <footer>Protected payroll workspace · Oman</footer>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><span class="brand-mark small">PF</span><span>payflow</span></div>
+      <div class="workspace-switch"><span class="avatar">AK</span><span><small>WORKSPACE</small> Al Khuwair Group</span><b>⌄</b></div>
+      <nav>
+        <p class="nav-label">PAYROLL</p>
+        <a class="nav-item active" href="#"><span>▦</span> Overview</a>
+        <a class="nav-item" href="#salary"><span>↗</span> Salary payments</a>
+        <a class="nav-item" href="#employees"><span>♙</span> Employees</a>
+        <p class="nav-label">MANAGE</p>
+        <a class="nav-item" href="#settings"><span>⚙</span> Settings</a>
+      </nav>
+      <div class="side-bottom"><div class="law-tip"><span>✓</span><div><strong>Ready for review</strong><small>12 payments need attention</small></div></div><button id="logoutButton" class="logout">↪ Sign out</button></div>
+    </aside>
+    <section class="content">
+      <header class="topbar"><div class="crumb">Payroll <span>/</span> Overview</div><div class="top-actions"><button class="icon-btn" title="Notifications">♧<i></i></button><div class="user-chip"><span class="avatar">AK</span><span><strong>Ahmed Khalid</strong><small>Payroll admin</small></span><b>⌄</b></div></div></header>
+      <div class="page-wrap">
+        <div class="page-heading"><div><p class="eyebrow">MONDAY, 24 AUGUST 2026</p><h2>Good morning, Ahmed <span>✦</span></h2><p class="muted">Here is what is happening with your July payroll.</p></div><button class="primary" id="openCalculator">＋ New salary payment</button></div>
+        <section class="summary-grid"><article class="metric-card"><span class="metric-icon coral">◷</span><div><small>PAYROLL PERIOD</small><strong>July 2026</strong><span class="status-tag green">Open</span></div></article><article class="metric-card"><span class="metric-icon yellow">♙</span><div><small>EMPLOYEES</small><strong>48</strong><span class="metric-sub">Across 4 locations</span></div></article><article class="metric-card"><span class="metric-icon blue">﷼</span><div><small>ESTIMATED NET PAY</small><strong id="dashboardTotal">OMR 18,420.50</strong><span class="metric-sub">+4.8% vs June</span></div></article><article class="metric-card"><span class="metric-icon lilac">✓</span><div><small>PAYMENT STATUS</small><strong>36 <small class="of-total">/ 48</small></strong><span class="metric-sub">Ready for approval</span></div></article></section>
+        <section class="workspace-grid" id="salary"><div class="panel payments-panel"><div class="panel-head"><div><h3>Salary payments</h3><p class="muted">July 2026 payment run</p></div><div class="head-tools"><button class="filter-btn">All locations ⌄</button><button class="icon-btn">⋮</button></div></div><div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>LOCATION</th><th>METHOD</th><th>WORK DAYS</th><th>NET SALARY</th><th>STATUS</th><th></th></tr></thead><tbody id="paymentRows"><tr><td><span class="person"><span class="avatar peach">MI</span><span><strong>Mohammed Ibrahim</strong><small>OM-10284</small></span></span></td><td>Al Khuwair</td><td>Working days</td><td>26 / 26</td><td><strong>OMR 1,240.00</strong></td><td><span class="status-tag green">Ready</span></td><td><button class="row-menu">⋮</button></td></tr><tr><td><span class="person"><span class="avatar mint">SA</span><span><strong>Sarah Ali</strong><small>OM-10411</small></span></span></td><td>Ghala</td><td>Calendar days</td><td>30 / 31</td><td><strong>OMR 980.75</strong></td><td><span class="status-tag amber">Draft</span></td><td><button class="row-menu">⋮</button></td></tr><tr><td><span class="person"><span class="avatar lilac-bg">YA</span><span><strong>Yusuf Al Balushi</strong><small>OM-10192</small></span></span></td><td>Rusayl</td><td>Working days</td><td>24 / 26</td><td><strong>OMR 842.30</strong></td><td><span class="status-tag green">Ready</span></td><td><button class="row-menu">⋮</button></td></tr><tr><td><span class="person"><span class="avatar yellow-bg">FN</span><span><strong>Fatma Nasser</strong><small>OM-10077</small></span></span></td><td>Al Khoudh</td><td>Calendar days</td><td>31 / 31</td><td><strong>OMR 1,510.00</strong></td><td><span class="status-tag blue-tag">Review</span></td><td><button class="row-menu">⋮</button></td></tr></tbody></table></div><button class="view-all">View all payments →</button></div><div class="panel law-panel"><div class="panel-head"><div><h3>Payroll checklist</h3><p class="muted">Before you approve this run</p></div><span class="progress-ring">75%</span></div><div class="checklist"><label><input type="checkbox" checked> Confirm working days <span>✓</span></label><label><input type="checkbox" checked> Review deductions <span>✓</span></label><label><input type="checkbox" checked> Validate bank details <span>✓</span></label><label><input type="checkbox"> Approve salary file <span>→</span></label></div><div class="law-note"><strong>Oman labour essentials</strong><p>Keep a clear wage record, pay through the agreed channel, and retain attendance and deduction support for audit.</p><a href="#" id="lawLink">View compliance notes →</a></div></div></section>
+        <section class="bottom-grid"><div class="panel mini-panel"><div class="panel-head"><div><h3>Payment activity</h3><p class="muted">Last 7 days</p></div><span class="trend">↗ 12.4%</span></div><div class="bars"><i style="height:42%"></i><i style="height:61%"></i><i style="height:52%"></i><i style="height:79%"></i><i style="height:67%"></i><i style="height:92%"></i><i style="height:73%"></i></div><div class="bar-labels"><span>18 Aug</span><span>24 Aug</span></div></div><div class="panel mini-panel"><div class="panel-head"><div><h3>Locations</h3><p class="muted">Employees by site</p></div></div><div class="location-row"><span><i class="dot coral-dot"></i>Al Khuwair</span><strong>18</strong></div><div class="location-row"><span><i class="dot blue-dot"></i>Ghala</span><strong>14</strong></div><div class="location-row"><span><i class="dot yellow-dot"></i>Rusayl</span><strong>9</strong></div><div class="location-row"><span><i class="dot mint-dot"></i>Al Khoudh</span><strong>7</strong></div></div></section>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="calculatorDialog"><div class="dialog-head"><div><p class="eyebrow">NEW PAYMENT</p><h2>Salary calculator</h2><p class="muted">Complete the payment inputs. Net salary updates instantly.</p></div><button class="close-btn" id="closeCalculator">×</button></div><form id="salaryForm"><div class="form-grid"><label>Employee name<input id="employeeName" value="New employee" required></label><label>Employee ID<input id="employeeId" value="OM-10501" required></label><label>Salary period<input type="month" id="salaryPeriod" value="2026-07"></label><label>Salary frequency<select id="frequency"><option>Monthly</option><option>Daily</option><option>Hourly</option></select></label></div><fieldset><legend>Proration method</legend><div class="method-switch"><label><input type="radio" name="method" value="working" checked> Working days</label><label><input type="radio" name="method" value="calendar"> Calendar days</label></div><div class="form-grid three"><label>Salary amount (OMR)<input class="calc-input" id="salaryAmount" type="number" min="0" step="0.001" value="1000"></label><label>Days worked<input class="calc-input" id="daysWorked" type="number" min="0" step="1" value="26"></label><label>Total period days<input class="calc-input" id="periodDays" type="number" min="1" step="1" value="26"></label></div></fieldset><fieldset><legend>Earnings and deductions</legend><div class="form-grid three"><label>Extra hours<input class="calc-input" id="extraHours" type="number" min="0" step="0.25" value="0"></label><label>Extra income (OMR)<input class="calc-input" id="extraIncome" type="number" min="0" step="0.001" value="0"></label><label>Other earnings (OMR)<input class="calc-input" id="otherEarnings" type="number" min="0" step="0.001" value="0"></label><label>Deductions (OMR)<input class="calc-input" id="deductions" type="number" min="0" step="0.001" value="0"></label><label>Social security (OMR)<input class="calc-input" id="socialSecurity" type="number" min="0" step="0.001" value="0"></label><label>Notes<input id="notes" placeholder="Optional note"></label></div></fieldset><div class="result-strip"><div><small>CALCULATED NET SALARY</small><strong id="netSalary">OMR 1,000.000</strong><span id="calculationHint">1000 × 26 / 26 + earnings − deductions</span></div><button class="primary" type="submit">Add payment <span>→</span></button></div></form></dialog><div id="toast" class="toast" role="status"></div>
+</body>
+</html>

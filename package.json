@@ -1,0 +1,14 @@
+{
+  "name": "payflow-oman",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack Oman payroll starter",
+  "type": "commonjs",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cookie-session": "^2.1.0",
+    "express": "^4.21.0",
+    "helmet": "^8.0.0"
+  }
+}
