@@ -1,26 +1,29 @@
-# Payflow Oman
+# Qarwashi Core
 
-Full-stack payroll starter based on the supplied salary workbook.
+A Next.js operations workspace for AL QARWASHI INTERNATIONAL TRADING SPC covering HR, attendance, payroll, WPS preparation, invoicing, and executive reporting.
 
 ## Run locally
 
-1. Install Node.js 20 or newer.
-2. In this folder run `npm install`.
-3. Set a real `SESSION_SECRET` before shared use.
-4. Run `npm start` and open `http://localhost:3000`.
+```bash
+npm install
+npm run dev
+```
 
-The seeded local account is `payroll@company.om` / `payflow`. Change it before deployment with a proper user-management flow. Data is stored in `data/payflow.sqlite`.
+Open [http://localhost:3000](http://localhost:3000) for the dashboard or [http://localhost:3000/login](http://localhost:3000/login) for the login surface.
 
-## Android WebAPK / installable web app
+## Included foundation
 
-The app includes `manifest.webmanifest`, `sw.js`, and a branded icon. Deploy the full stack over HTTPS, open the URL in Chrome on Android, then choose **Install app**. Chrome will create the Android WebAPK automatically. Opening `index.html` directly with `file://` cannot create a WebAPK and cannot call the backend APIs.
+- Role-aware workspace navigation for Overview, People, Attendance, Payroll, and Invoices
+- Responsive dashboard with payroll forecast, collection progress, alerts, employee payroll status, and capacity insights
+- Interactive seeded views with search, period selection, filters, export feedback, and action feedback
+- Backend route at `/api/dashboard` for the dashboard payload
+- Login route ready to connect to an auth provider and persistent database
 
-## Backend included
+## Deploy through GitHub to Vercel
 
-- Password hashing with Node `scrypt`, HTTP-only session cookie, and Helmet security headers.
-- SQLite persistence for users, employees, payroll runs, salary payments, and audit events.
-- Authenticated dashboard and payment APIs.
-- Server-side net salary calculation; the browser display is not trusted.
-- Working-days or calendar-days proration, editable period days, earnings, deductions, and social security.
+1. Create a GitHub repository and push this folder.
+2. In Vercel, choose **Add New Project** and import the repository.
+3. Keep the detected framework as **Next.js** and deploy with the default build command.
+4. Add production auth/database environment variables when the backend is connected.
 
-Before production, have an Oman payroll specialist confirm wage protection, leave, overtime, end-of-service, social protection, deduction limits, and nationality-specific rules. Add CSRF protection, rate limiting, encrypted backups, MFA, approval permissions, bank-file controls, and automated tests before handling real payroll.
+The current workspace deliberately uses local seed data so the user experience is immediately reviewable. The API route is the boundary for replacing those seeds with PostgreSQL/Prisma or a managed backend, and the login page is the boundary for Auth.js, Clerk, or another identity provider.
